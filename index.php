@@ -14,7 +14,6 @@ $sec = "1";
     <meta http-equiv="refresh" content="<?php echo $sec?>;URL='<?php echo $page?>'">
     </head>
     <body style="background-color:black;">
-<img src="<?php echo $imp; ?>" />
+<img src="<?php echo $imp; ?>" alt="scap" width="480" height="270" />
     </body>
 </html>
-
