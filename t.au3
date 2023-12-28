@@ -9,6 +9,7 @@ If Not (@Compiled ) Then DllCall("User32.dll","bool","SetProcessDPIAware")
 
 $XamppScap = "C:\xampp\htdocs\myscap"
 ;$XamppScap = ""
+$Timer = TimerInit()
  
  
  
@@ -33,11 +34,10 @@ Func GUIS()
         GUISetState(@SW_SHOW, $hGUI)
 
         Local $iPID = 0
-
+	 
         ; Loop until the user exits.
         While 1
 				Example()
-				Sleep(500)
                 Switch GUIGetMsg()
                         Case $GUI_EVENT_CLOSE, $idButton_Close
                                 ExitLoop
@@ -60,8 +60,12 @@ EndFunc   ;==>Example
 Func Example()
         ; Capture full screen
 		; FileDelete($XamppScap & "\GDIPlus_Image1.jpg");
-        _ScreenCapture_Capture($XamppScap & "\GDIPlus_Image1.jpg",0,0,@DesktopWidth,@DesktopHeight)
-
+		$Delay = TimerDiff($Timer)
+		$DelayTime = (500)
+		if $Delay > $DelayTime Then
+			_ScreenCapture_Capture($XamppScap & "\GDIPlus_Image1.jpg",0,0,@DesktopWidth,@DesktopHeight)
+        $Timer = TimerInit()
+		EndIf
        ; ShellExecute($XamppScap & "\GDIPlus_Image1.jpg")
 
         ; Capture region
