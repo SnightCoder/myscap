@@ -37,6 +37,7 @@ Func GUIS()
         ; Loop until the user exits.
         While 1
 				Example()
+				Sleep(500)
                 Switch GUIGetMsg()
                         Case $GUI_EVENT_CLOSE, $idButton_Close
                                 ExitLoop
@@ -58,6 +59,7 @@ EndFunc   ;==>Example
 
 Func Example()
         ; Capture full screen
+		; FileDelete($XamppScap & "\GDIPlus_Image1.jpg");
         _ScreenCapture_Capture($XamppScap & "\GDIPlus_Image1.jpg",0,0,@DesktopWidth,@DesktopHeight)
 
        ; ShellExecute($XamppScap & "\GDIPlus_Image1.jpg")
